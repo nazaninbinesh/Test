@@ -60,15 +60,19 @@ body {
 }
     .form-page .items{
         overflow: hidden;
+        clear: both;
+        width: 100%;
     }
     .form-page .items label.label:first-child {
         float: right;
         width: 100px;
         text-align: right;
     }
-    .form-page form{
-        width: 100%;
-    }
+        .form-page .items label.label:last-child {
+            float: right;
+            width: auto;
+            text-align: right;
+        }   
     .form-page .items span {
         float: right;
     }

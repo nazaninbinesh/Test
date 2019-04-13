@@ -4,45 +4,28 @@
 
 <div class="form-page">
     <div class="col-12">
-        <div class="row">
-            <div class="persons">
-                <div class="items">
-                    <label class="label">نام</label>
-                    <span class="colon">:</span>
-                    <label class="label" id="name"></label>
-                </div>
-                <div class="items">
-                    <label class="label"> نام خانوادگی </label>
-                    <span class="colon">:</span>
-                    <label class="label" id="family"></label>
-                </div>
-                <div class="items">
-                    <a href="/edit" class="btn btn-warning">ویرایش</a>
-                </div>
-            </div>            
+        <div class="row" id="container">
+
+        </div>
+        <div class="items">
+            <a href="/edit" class="btn btn-warning">ویرایش</a>
         </div>
     </div>
 
 </div>
 
 <script>
-    function createNode(element) {
-        return document.createElement(element);
-    }
-    function append(parent, el) {
-        return parent.appendChild(el);
-    }
-    const items = document.getElementById('items');
-    const url = 'https://jsonplaceholder.typicode.com/users';
 
-    // Get all users
-    fetch(url)
+    fetch('https://jsonplaceholder.typicode.com/users')
         .then(response => response.json())
-        .then(function (data) {
-            let items = data;
-            return person.map(function (person) {
-                let label = createNode('label');
-                label.innertHTML = `${person.name.first} ${person.name.last}`
-            })
+        .then(data => getdata(data))
+                      
+    function getdata(data) {        
+        data.forEach(function (val, index) {         
+            var items = '<div class="items col-6"><label class="label">نام</label><span class="colon">:</span><label class="label" >' + val.name + '</label></div><div class="items col-6"><label class="label"> نام خانوادگی </label><span class="colon">:</span><label class="label">' + val.username +'</label></div>',
+                div = document.getElementById( 'container' );
+                div.insertAdjacentHTML( 'beforeend', items );            
         })
+    }
+
 </script>
