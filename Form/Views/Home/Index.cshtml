@@ -5,29 +5,44 @@
 <div class="form-page">
     <div class="col-12">
         <div class="row">
-            <form action="/" method="post">
+            <div class="persons">
                 <div class="items">
                     <label class="label">نام</label>
                     <span class="colon">:</span>
-                    <label class="label"></label>
-                    <input type="text" name="name" value="" />
+                    <label class="label" id="name"></label>
                 </div>
                 <div class="items">
                     <label class="label"> نام خانوادگی </label>
                     <span class="colon">:</span>
-                    <label class="label"></label>
-                    <input type="text" name="family" value="" />
-                </div>               
-                <div class="items">
-                    <button class="btn btn-warning">ویرایش</button>
-                    <button class="btn btn-success">ذخیره</button>                    
+                    <label class="label" id="family"></label>
                 </div>
-            </form>
+                <div class="items">
+                    <a href="/edit" class="btn btn-warning">ویرایش</a>
+                </div>
+            </div>            
         </div>
     </div>
-    
+
 </div>
 
 <script>
+    function createNode(element) {
+        return document.createElement(element);
+    }
+    function append(parent, el) {
+        return parent.appendChild(el);
+    }
+    const items = document.getElementById('items');
+    const url = 'https://jsonplaceholder.typicode.com/users';
 
+    // Get all users
+    fetch(url)
+        .then(response => response.json())
+        .then(function (data) {
+            let items = data;
+            return person.map(function (person) {
+                let label = createNode('label');
+                label.innertHTML = `${person.name.first} ${person.name.last}`
+            })
+        })
 </script>
