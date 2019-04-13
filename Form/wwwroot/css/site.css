@@ -66,9 +66,15 @@ body {
         width: 100px;
         text-align: right;
     }
-.form-page .items span {
-    float: right;
-}
+    .form-page form{
+        width: 100%;
+    }
+    .form-page .items span {
+        float: right;
+    }
 .form-page .items input {
     float: right;
 }
+    .form-page .items button{
+        float:left;
+    }
