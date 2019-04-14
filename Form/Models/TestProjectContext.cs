@@ -24,7 +24,9 @@ namespace Form.Models
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Server=127.0.0.1;Database=TestProject;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer("Server=192.168.0.251;Database=TestProject;User ID=UserApi;Password=1qazXSW@;");
+                //Server=192.168.0.89;Initial Catalog=IrancardService;User ID=sa;Password=123654
+                //Server=192.168.0.251;Database=TestProject;Trusted_Connection=True;
             }
         }
 
